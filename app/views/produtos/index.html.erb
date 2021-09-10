@@ -1,8 +1,33 @@
-<html>
-  <%=nav_bar  brand:"TOPGAMES",brand_link:root_url%>
-<div class="container">
-<body>
-        <table class="table table-bordered table-hover">
+  
+            <table class="table table-bordered table-hover">
+                <thread>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Descrição</td>
+                        <td>Preço</td>
+                        <td>Quantidade</td>
+                        <td colspan = "1">
+                    </tr>
+                </thead>
+                <tbody>      
+            
+                    <% @produtos.each do |produto| %>
+                        <tr>
+                            <td><%= produto.nome %></td>
+                            <td><%= produto.descricao %></td>
+                            <td><%=produto.preco %></td>
+                            <td><%= produto.quantidade %></td>
+                            <td><%= button_to "Remover", produto,method: :delete , 
+                                    class:"btn btn-danger",
+                                        data:{confirm:"Deseja mesmo remover o produto #{produto.nome}?"} %></td>
+                         </tr>
+                    <% end %>
+                        </tbody>
+            </table>
+            <div class="alert alert success" role = "alert">
+            <h4 class="alert-heading"> Produto com desconto</h3>
+        </div>
+            <table class="table table-bordered table-hover">
             <thread>
                 <tr>
                     <td>Nome</td>
@@ -12,8 +37,8 @@
                 </tr>
             </thead>
             <tbody>      
-           
-                <% @produtos.each do |produto| %>
+        
+                <% @produtos_com_desconto.each do |produto| %>
                     <tr>
                         <td><%= produto.nome %></td>
                         <td><%= produto.descricao %></td>
@@ -22,30 +47,4 @@
                     </tr>
                 <% end %>
                     </tbody>
-        </table>
-        <div class="alert alert success" role "alert">
-        <h4 class= "alert-heading">Produto com desconto</h3>
-      </div>
-        <table class="table table-bordered table-hover">
-        <thread>
-            <tr>
-                <td>Nome</td>
-                <td>Descrição</td>
-                <td>Preço</td>
-                <td>Quantidade</td>
-            </tr>
-        </thead>
-        <tbody>      
-       
-            <% @produtos_com_desconto.each do |produto| %>
-                <tr>
-                    <td><%= produto.nome %></td>
-                    <td><%= produto.descricao %></td>
-                    <td><%=produto.preco %></td>
-                    <td><%= produto.quantidade %></td>
-                </tr>
-            <% end %>
-                </tbody>
-    </body>
-</div>                              
-    </html>
+    

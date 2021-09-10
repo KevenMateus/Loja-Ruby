@@ -1,17 +1,57 @@
-<html>
-    <body>
-        <%=form_for Produto.new do |form|%>
-       Nome <input type="text" name = "produto[nome]"></br>
-       Descrição <textarea type = "text" name = "produto[descricao]"></textarea></br>
-      Preço <input type="number" step ="0.001" name = "produto[preco]"></br>
-      Quantidade <input type ="number" name = "produto[quantidade]"></br>
+
+    <%=form_for Produto.new do |form|%>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                     <div class = "form-group">  
+           <%= form.label:Nome %>
+         <%=form.text_field:nome,class:"form-control"%>
+                     </div>
+                 </div>
+             </div>
+
     
-    <button> type= "submit" >Criar</button>
+             <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                     <div class = "form-group">
+
+                          <%=form.label:Descrição%>
+                          <%=form.text_area :descricao,class:"form-control",rows:3%>
+
+
+                     </div>
+                 </div>
+             </div>
+
+             <div class="row">
+             <div class="col-md-4 col-md-offset-2">
+                  <div class = "form-group">
+
+                       <%=form.label:Preço%>
+                       <%=form.number_field :preco,step:0.01,class:"form-control"%>
+
+
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+          <div class="col-md-4 col-md-offset-2">
+               <div class = "form-group">
+
+                    <%=form.label:Quantidade%>
+                    <%=form.number_field :quantidade,class:"form-control"%>
+
+
+               </div>
+           </div>
+       </div>
+
+    
+    <%=form.submit "Criar Produto", class:"btm btm-primary"%>
     </form>
    
     <% end %>
    
-    </body>
-</html>
+   
 
 
